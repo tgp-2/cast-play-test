@@ -7,11 +7,11 @@ recent google cast audio devices run a new firmware version (google cast for aud
 
 # how to
 
-- 1) go to google's command and control tool website [Cactool V2](https://casttool.appspot.com/cactool/)
-- 2) set the receiver App ID to `D7D5D949`
-- 3) click the cast icon at the top of the browser page, select your cast device from the list
-- 4) the cast icon should indicate that the app is loaded
-- 5) scroll down, logged test results should show at the bottom of the page
+1) go to google's command and control tool website [Cactool V2](https://casttool.appspot.com/cactool/)
+2) set the receiver App ID to `D7D5D949`
+3) click the cast icon at the top of the browser page, select your cast device from the list
+4) the cast icon should indicate that the app is loaded
+5) scroll down, logged test results should show at the bottom of the page
 
 # test results
 
