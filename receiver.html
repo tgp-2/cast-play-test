@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Web Receiver SDK -->
+  <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+  <!-- Cast Debug Logger Library -->
+  <script src="//www.gstatic.com/cast/sdk/libs/devtools/debug_layer/caf_receiver_logger.js"></script>
+</head>
+<body>
+  <script>
+    const context = cast.framework.CastReceiverContext.getInstance();
+    const castDebugLogger = cast.debug.CastDebugLogger.getInstance();
+    const LOG_TAG = 'PlayTest';
+
+    context.addEventListener(cast.framework.system.EventType.READY, () => {
+      castDebugLogger.setEnabled(true);
+
+      // delay to allow logger to fully initialize
+      setTimeout(() => {
+        // formats to test
+        const audioTypes = [
+          'audio/aac',
+          'audio/aiff',
+          'audio/ape',
+          'audio/flac',
+          'video/matroska; codecs=opus',
+          'audio/mp3',
+          'audio/mp4; codecs=alac',
+          'audio/mp4; codecs=mp4a.40.2',
+          'audio/mpeg',
+          'audio/ogg; codecs=opus',
+          'audio/ogg; codecs=vorbis',
+          'audio/wav'
+        ];
+
+        // create audio element for canPlayType testing
+        const tester = document.createElement('audio');
+
+        // log test results
+        castDebugLogger.info(LOG_TAG, '');
+        castDebugLogger.info(LOG_TAG, 'START');
+        audioTypes.forEach(type => {
+          const canDisplay = context.canDisplayType(type);
+          const canPlay = tester.canPlayType(type);
+          const canPlayStatus = canPlay === '' ? 'false' : canPlay;
+
+          castDebugLogger.info(LOG_TAG, `${type},${canDisplay},${canPlayStatus}`);
+        });
+
+        // log header after data so it appears at top of log view
+        castDebugLogger.info(LOG_TAG, 'format,canDisplayType,canPlayType');
+        // log user agent for Cast device
+        castDebugLogger.info(LOG_TAG, 'UserAgent: ' + navigator.userAgent);
+        castDebugLogger.info(LOG_TAG, 'END');
+      }, 2000);
+    });
+
+    // Start the receiver
+    context.start();
+  </script>
+</body>
+</html>
