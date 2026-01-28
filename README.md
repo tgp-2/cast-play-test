@@ -19,11 +19,12 @@ recent google cast audio devices run a new firmware version (google cast for aud
 
 # test results
 
-example results from 3 devices below (Wiim Ultra, Wiim Pro Plus, and Google Chromecast Audio)<br>
+- example results from 3 devices below (Wiim Ultra, Wiim Pro Plus, and Google Chromecast Audio)<br>
 
-Wiim Ultra runs the newer castlite firmware, the others run the older/original chromecast firmware<br>
+- Wiim Ultra runs the newer castlite firmware, the others run the older/original chromecast firmware<br>
 
-each test run shows UserAgent for the tested device, then the canDisplayType and canPlayType results for a number of common audio formats<br>
+- each test run shows UserAgent for the tested device, then the canDisplayType and canPlayType results for a number of common audio formats<br>
+
 ```
 [ 2.736s] [PlayTest] [INFO] END
 [ 2.735s] [PlayTest] [INFO] UserAgent: Castlite/1.0 (Linkplay Technology Inc.; WiiM Ultra) CrKey/1.68.000001
